@@ -1,7 +1,77 @@
 <div class="container-fluid vh-100" style="background-size:cover; height: 200px;"
     [style.background]="getUrlBackground()">
-    <div class="row">
-        <div class="col" style="margin: 30% 0% 0% 10%;">
+    <div class="row h-100">
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="card w-25">
+                <div class="card-body">
+                    <div class="row mt-4">
+                        <div class="col-12 text-center">
+                            <img class="img-fluid" style="width: 135px;height: auto;border-radius: 25px;"
+                                src="assets/img/logo.png">
+                        </div>
+                        <form class="col-12">
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10">
+                                    <div class="row">
+                                        <div class="col-12 form-group mt-3 mb-1">
+                                            <label>{{'formAuth.language' | translate}}</label>
+                                            <select class="form-control">
+                                                <option [ngValue]="null" selected>
+                                                    -- เลือกภาษา --
+                                                </option>
+                                                <option [ngValue]="'en'">English</option>
+                                                <option [ngValue]="'th'">ไทย</option>
+                                                <option [ngValue]="'ch'">Chinese</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 form-group mb-1">
+                                            <label>{{ 'formAuth.username' | translate }}</label>
+                                            <input type="text" class="form-control"
+                                                [placeholder]="'formAuth.username' | translate">
+                                        </div>
+                                        <div class="col-12 form-group mb-1">
+                                            <label>{{ 'formAuth.password' | translate }}</label>
+                                            <div class="input-group mb-3">
+                                                <input [type]="isShowPassword ? 'text' : 'password'"
+                                                    class="form-control"
+                                                    [placeholder]="'formAuth.password' | translate">
+                                                <div class="input-group-prepend">
+                                                    <a href="javascript:void(0)" class="input-group-text"
+                                                        (click)="isShowPassword = !isShowPassword"
+                                                        style="background: transparent">
+                                                        <i class="fa fa-eye-slash" *ngIf="!isShowPassword"></i>
+                                                        <i class="fa fa-eye" *ngIf="isShowPassword"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 ml-1"></div>
+                                        <div class="col form-group text-right">
+                                            <label style="font-weight:50;cursor: pointer;">
+                                                ลืมรหัสผ่าน ?
+                                            </label>
+                                        </div>
+                                        <div class="col-12  form-group mt-3">
+                                            <button type="button" class="btn btn-dark btn-block" routerLink="/dashboard">
+                                                {{'public.signIn' | translate}}
+                                            </button>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- <div class="col" style="margin: 30% 0% 0% 10%;">
             <h1 style="color: white;">ADMINLTE ANGLAR 15</h1>
             <h3 style="color: white;">DDInter mac</h3>
         </div>
@@ -81,114 +151,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" bsModal #forcePasswordModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1">
-    <div class="modal-dialog">
-        <form class="modal-content" [formGroup]="formChangePassword"
-            (ngSubmit)="formChangePassword.valid && submitChangePassword(); submittedChangePassword = true">
-            <div class="modal-body">
-                <div class="modal-body">
-                    <div class="row p-3">
-                        <div class="col-12 text-center mb-3">
-                            <h5 style="display: inline;">Change Password</h5>
-                            <i class="fas fa-times float-right mt-1" style="cursor: pointer;"
-                                (click)="forcePasswordModal.hide();"></i><br>
-                        </div>
-                        <div class="col-12 px-0 mb-3">
-                            <label>New Password <span class="text-danger">*</span></label>
-                            <div class="input-group mb-3">
-                                <input [type]="isShowPasswordNew ? 'text' : 'password'" class="form-control"
-                                    formControlName="newPassword"
-                                    [class.is-invalid]="(formChangePassword.get('newPassword').dirty || submittedChangePassword) && formChangePassword.get('newPassword').invalid"
-                                    required>
-                                <div class="input-group-prepend">
-                                    <a href="javascript:void(0)" class="input-group-text"
-                                        (click)="isShowPasswordNew = !isShowPasswordNew"
-                                        style="background: transparent">
-                                        <i class="fa fa-eye-slash" *ngIf="!isShowPasswordNew"></i>
-                                        <i class="fa fa-eye" *ngIf="isShowPasswordNew"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 px-0 mb-3">
-                            <label>Confirm New Password <span class="text-danger">*</span></label>
-                            <div class="input-group mb-3">
-                                <input [type]="isShowPasswordConfirmNew ? 'text' : 'password'" class="form-control"
-                                    formControlName="confirmNewPassword"
-                                    [class.is-invalid]="(formChangePassword.get('confirmNewPassword').dirty || submittedChangePassword) && formChangePassword.get('confirmNewPassword').invalid"
-                                    required>
-                                <div class="input-group-prepend">
-                                    <a href="javascript:void(0)" class="input-group-text"
-                                        (click)="isShowPasswordConfirmNew = !isShowPasswordConfirmNew"
-                                        style="background: transparent">
-                                        <i class="fa fa-eye-slash" *ngIf="!isShowPasswordConfirmNew"></i>
-                                        <i class="fa fa-eye" *ngIf="isShowPasswordConfirmNew"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 px-0 text-center mt-5">
-                            <div class="row">
-                                <div class="col-6 pl-0">
-                                    <button type="button" class="btn btn-outline-dark btn-block" style="height: 45px;"
-                                        (click)="forcePasswordModal.hide()">
-                                        {{ 'public.close' | translate}}
-                                    </button>
-                                </div>
-                                <div class="col-6 pr-0">
-                                    <button type="submit" class="btn btn-dark btn-block" style="height: 45px;">
-                                        {{ 'public.confirm' | translate}}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<div class="modal fade" bsModal #forgotPasswordModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1">
-    <div class="modal-dialog">
-        <form class="modal-content" [formGroup]="formForgot"
-            (ngSubmit)="formForgot.valid && submitForgotPassword(); submittedForgot = true">
-            <div class="modal-body">
-                <div class="modal-body">
-                    <div class="row p-3">
-                        <div class="col-12 text-center mb-3">
-                            <h5 style="display: inline;">Forgot Password</h5>
-                            <i class="fas fa-times float-right mt-1" style="cursor: pointer;"
-                                (click)="forgotPasswordModal.hide();"></i><br>
-                        </div>
-                        <div class="col-12 px-0 mb-3">
-                            <label>E-mail <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" formControlName="adminEmail"
-                                [class.is-invalid]="(formForgot.get('adminEmail').dirty || submittedForgot) && formForgot.get('adminEmail').invalid"
-                                required>
-                        </div>
-                        <div class="col-12 text-center mt-5">
-                            <div class="row">
-                                <div class="col-6 pl-0">
-                                    <button type="button" class="btn btn-outline-dark btn-block" style="height: 45px;"
-                                        (click)="forgotPasswordModal.hide()">
-                                        {{ 'public.close' | translate}}
-                                    </button>
-                                </div>
-                                <div class="col-6 pr-0">
-                                    <button type="submit" class="btn btn-dark btn-block" style="height: 45px;">
-                                        {{ 'public.confirm' | translate}}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+        </div> -->
     </div>
 </div>

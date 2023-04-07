@@ -12,7 +12,27 @@ const routes: Routes = [
             {
                 path: 'dashboard',
                 loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule)
-            }
+            },
+            {
+                path: 'profile',
+                loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule)
+            },
+            {
+                path: 'business',
+                loadChildren: () => import('./components/business/business.module').then(m => m.BusinessModule)
+            },
+            // {
+            //     path: 'research',
+            //     loadChildren: () => import('./components/').then(m => m.ResearchModule)
+            // },
+            // {
+            //     path: 'learning',
+            //     loadChildren: () => import('./components/').then(m => m.LearningModule)
+            // },
+            // {
+            //     path: 'member',
+            //     loadChildren: () => import('./components/').then(m => m.MemberModule)
+            // },
         ]
     },
     {

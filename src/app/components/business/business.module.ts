@@ -13,15 +13,15 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { SharedModule } from '@/shared/shared.module';
 
-import { DashboardRouting } from './dashboard.routing';
-import { DashboardComponent } from './dashboard.component';
-import { DashboardMyProfileComponent } from './myprofile/myprofile.component';
-import { DashboardTrendsComponent } from './trends/trends.component';
+import { BusinessRouting } from './business.routing';
+import { BusinessMatchingComponent } from './matching/matching.component';
+import { BusinessChecklistComponent } from './checklist/checklist.component';
+import { BusinessQualityComponent } from './quality/quality.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        DashboardRouting,
+        BusinessRouting,
         RouterModule,
         FormsModule, ReactiveFormsModule,
         NgbModule,
@@ -32,10 +32,10 @@ import { DashboardTrendsComponent } from './trends/trends.component';
         SharedModule
     ],
     declarations: [
-        DashboardComponent,
-        DashboardMyProfileComponent,
-        DashboardTrendsComponent
+        BusinessMatchingComponent,
+        BusinessChecklistComponent,
+        BusinessQualityComponent
     ]
 
 })
-export class DashboardModule { }
+export class BusinessModule { }
