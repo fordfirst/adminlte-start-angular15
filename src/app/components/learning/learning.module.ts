@@ -13,15 +13,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { SharedModule } from '@/shared/shared.module';
 
-import { ProfileRouting } from './profile.routing';
-import { SMEProfileDocumentComponent } from './sme-profile/sme-profile.component';
-import { ProfileDocumentComponent } from './profile-document/profile-document.component';
-import { ProfileChinaComponent } from './profile-china/profile-china.component';
+import { LearningRouting } from './learning.routing';
+import { LearningMyLearningComponent } from './mylearning/mylearning.component';
+import { LearningCatalogComponent } from './catalog/catalog.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        ProfileRouting,
+        LearningRouting,
         RouterModule,
         FormsModule, ReactiveFormsModule,
         NgbModule,
@@ -32,10 +31,9 @@ import { ProfileChinaComponent } from './profile-china/profile-china.component';
         SharedModule
     ],
     declarations: [
-        SMEProfileDocumentComponent,
-        ProfileDocumentComponent,
-        ProfileChinaComponent
+        LearningMyLearningComponent,
+        LearningCatalogComponent
     ]
 
 })
-export class ProfileModule { }
+export class LearningModule { }

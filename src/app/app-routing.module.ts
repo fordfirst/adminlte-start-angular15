@@ -21,18 +21,18 @@ const routes: Routes = [
                 path: 'business',
                 loadChildren: () => import('./components/business/business.module').then(m => m.BusinessModule)
             },
-            // {
-            //     path: 'research',
-            //     loadChildren: () => import('./components/').then(m => m.ResearchModule)
-            // },
-            // {
-            //     path: 'learning',
-            //     loadChildren: () => import('./components/').then(m => m.LearningModule)
-            // },
-            // {
-            //     path: 'member',
-            //     loadChildren: () => import('./components/').then(m => m.MemberModule)
-            // },
+            {
+                path: 'research',
+                loadChildren: () => import('./components/research/research.module').then(m => m.ResearchModule)
+            },
+            {
+                path: 'learning',
+                loadChildren: () => import('./components/learning/learning.module').then(m => m.LearningModule)
+            },
+            {
+                path: 'member',
+                loadChildren: () => import('./components/member/member.module').then(m => m.MemberModule)
+            },
         ]
     },
     {
