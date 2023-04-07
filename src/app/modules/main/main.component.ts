@@ -1,9 +1,9 @@
-import {AppState} from '@/store/state';
-import {ToggleSidebarMenu} from '@/store/ui/actions';
-import {UiState} from '@/store/ui/state';
-import {Component, HostBinding, OnInit, Renderer2} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
+import { AppState } from '@/store/state';
+import { ToggleSidebarMenu } from '@/store/ui/actions';
+import { UiState } from '@/store/ui/state';
+import { Component, HostBinding, OnInit, Renderer2 } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-main',
@@ -13,8 +13,9 @@ import {Observable} from 'rxjs';
 export class MainComponent implements OnInit {
     @HostBinding('class') class = 'wrapper';
     public ui: Observable<UiState>;
+    public sidebarMenuOpened = true;
 
-    constructor(private renderer: Renderer2, private store: Store<AppState>) {}
+    constructor(private renderer: Renderer2, private store: Store<AppState>) { }
 
     ngOnInit() {
         this.ui = this.store.select('ui');
@@ -32,7 +33,7 @@ export class MainComponent implements OnInit {
         );
 
         this.ui.subscribe(
-            ({menuSidebarCollapsed, controlSidebarCollapsed, darkMode}) => {
+            ({ menuSidebarCollapsed, controlSidebarCollapsed, darkMode }) => {
                 if (menuSidebarCollapsed) {
                     this.renderer.removeClass(
                         document.querySelector('app-root'),
@@ -78,6 +79,20 @@ export class MainComponent implements OnInit {
                 }
             }
         );
+
+        // if (this.sidebarMenuOpened) {
+        //     this.renderer.removeClass(document.body, 'sidebar-open');
+        //     this.renderer.addClass(document.body, 'sidebar-collapse');
+        //     this.sidebarMenuOpened = false;
+
+        //     $('.brand-image').css('margin-left', '-12px');
+        // } else {
+        //     this.renderer.removeClass(document.body, 'sidebar-collapse');
+        //     this.renderer.addClass(document.body, 'sidebar-open');
+        //     this.sidebarMenuOpened = true;
+
+        //     $('.brand-image').css('margin-left', '0');
+        // }
     }
 
     onToggleMenuSidebar() {
