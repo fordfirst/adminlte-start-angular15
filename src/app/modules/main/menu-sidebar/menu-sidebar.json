@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Dashboard",
+        "iconClasses": "fas fa-tachometer-alt",
+        "path": [
+            "/"
+        ]
+    },
+    {
+        "name": "Profile",
+        "iconClasses": "fas fa-file",
+        "path": [
+            "/profile"
+        ]
+    },
+    {
+        "name": "Business",
+        "iconClasses": "fas fa-file",
+        "path": [
+            "/business"
+        ]
+    },
+    {
+        "name": "Research",
+        "iconClasses": "fas fa-file",
+        "path": [
+            "/research"
+        ]
+    },
+    {
+        "name": "Learning",
+        "iconClasses": "fas fa-file",
+        "path": [
+            "/learning"
+        ]
+    },
+    {
+        "name": "Member",
+        "iconClasses": "fas fa-file",
+        "path": [
+            "/member"
+        ]
+    },
+    {
+        "name": "Logout",
+        "iconClasses": "fas fa-file",
+        "path": [
+            "/logout"
+        ],
+        "function": "Logout"
+    },
+    {
+        "name": "Main Menu",
+        "iconClasses": "fas fa-folder",
+        "children": [
+            {
+                "name": "Sub Menu",
+                "iconClasses": "far fa-address-book",
+                "path": [
+                    "/profile/sme-profile"
+                ]
+            },
+            {
+                "name": "Blank",
+                "iconClasses": "fas fa-file",
+                "path": [
+                    "/sub-menu-2"
+                ]
+            }
+        ]
+    }
+]

@@ -9,15 +9,11 @@ import { HeaderComponent } from '@modules/main/header/header.component';
 import { FooterComponent } from '@modules/main/footer/footer.component';
 import { MenuSidebarComponent } from '@modules/main/menu-sidebar/menu-sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ProfileComponent } from '@pages/profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from '@pages/dashboard/dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 
-import { CommonModule, registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
-import { MainMenuComponent } from './pages/main-menu/main-menu.component';
-import { SubMenuComponent } from './pages/main-menu/sub-menu/sub-menu.component';
 import { StoreModule } from '@ngrx/store';
 import { authReducer } from './store/auth/reducer';
 import { uiReducer } from './store/ui/reducer';
@@ -25,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpErrorInterceptor } from './shared/http-error.interceptor';
+import { MenuItemComponent } from '@modules/main/menu-item/menu-item.component';
 
 registerLocaleData(localeEn, 'en-EN');
 
@@ -35,10 +32,7 @@ registerLocaleData(localeEn, 'en-EN');
         HeaderComponent,
         FooterComponent,
         MenuSidebarComponent,
-        ProfileComponent,
-        DashboardComponent,
-        MainMenuComponent,
-        SubMenuComponent
+        MenuItemComponent
     ],
     imports: [
         BrowserModule,

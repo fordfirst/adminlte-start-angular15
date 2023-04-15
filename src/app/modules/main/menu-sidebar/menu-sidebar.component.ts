@@ -10,23 +10,23 @@ import { FileUploadService } from '@services/fileUpload.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import menuJSON from './menu-sidebar.json'
 
 const BASE_CLASSES = 'main-sidebar';
 // const BASE_CLASSES = 'main-sidebar elevation-4';
 @Component({
     selector: 'app-menu-sidebar',
     templateUrl: './menu-sidebar.component.html',
-    styleUrls: ['./menu-sidebar.component.scss']
+    styleUrls: ['./menu-sidebar.component.scss'],
 })
 export class MenuSidebarComponent implements OnInit {
     @HostBinding('class') classes: string = BASE_CLASSES;
     public ui: Observable<UiState>;
     public user;
+    public menu = menuJSON;
 
     FileUploadService = FileUploadService;
-    dataCompany: any = {
-        companyLogo: null
-    };
+    dataCompany: any = { companyLogo: null };
 
     constructor(
         public appService: AppService,
@@ -38,7 +38,6 @@ export class MenuSidebarComponent implements OnInit {
     ) { }
 
     async ngOnInit() {
-        // await this.getDataCompany();
         this.ui = this.store.select('ui');
         this.ui.subscribe((state: UiState) => {
             this.classes = `${BASE_CLASSES} ${state.sidebarSkin}`;
@@ -71,6 +70,6 @@ export class MenuSidebarComponent implements OnInit {
         }
     }
 
-
-
 }
+
+
